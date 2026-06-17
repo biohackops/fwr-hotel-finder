@@ -1,0 +1,379 @@
+:root {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #080c14;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Color Palette - Cyber Amber & Slate */
+  --bg-primary: #070b12;
+  --bg-secondary: #0d1527;
+  --bg-card: rgba(17, 25, 43, 0.7);
+  --bg-card-hover: rgba(26, 38, 64, 0.8);
+  --border-light: rgba(255, 255, 255, 0.06);
+  --border-glow: rgba(249, 115, 22, 0.2);
+  
+  --color-accent: #f97316; /* Electric Amber */
+  --color-accent-hover: #ea580c;
+  --color-secondary: #06b6d4; /* Cyber Cyan */
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #94a3b8;
+  --color-success: #10b981;
+  --color-danger: #ef4444;
+  --color-warning: #f59e0b;
+
+  --shadow-neon: 0 0 15px rgba(249, 115, 22, 0.15);
+  --shadow-neon-cyan: 0 0 15px rgba(6, 118, 212, 0.15);
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent; /* Safari iOS tap feedback reset */
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(249, 115, 22, 0.05) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.05) 0px, transparent 50%),
+    linear-gradient(rgba(255, 255, 255, 0.005) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.005) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 30px 30px, 30px 30px;
+  color: var(--color-text-primary);
+  overflow: hidden;
+}
+
+h1, h2, h3, h4, .brand-font {
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Glassmorphism Panel styles */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+}
+
+.glass-panel-accent {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-glow);
+  border-radius: 16px;
+  box-shadow: var(--shadow-neon);
+}
+
+/* App Layout */
+.app-container {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  height: 100vh;
+  height: 100dvh; /* dynamic height for iOS address bar */
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+}
+
+.mobile-nav-bar {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .app-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr; /* Toggle display layers in state */
+    height: 100dvh;
+    position: relative;
+  }
+  
+  .sidebar-container {
+    display: flex !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100dvh;
+    z-index: 10;
+  }
+  
+  .sidebar-container.hidden-mobile {
+    display: none !important;
+  }
+  
+  .map-container-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100dvh;
+    z-index: 5;
+  }
+
+  /* Adjust blueprint positioning on mobile */
+  .blueprint-card {
+    bottom: 96px !important;
+    right: 50% !important;
+    transform: translateX(50%) !important;
+    width: calc(100% - 32px) !important;
+    max-width: 350px !important;
+  }
+
+  .mobile-nav-bar {
+    display: flex;
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1001; /* Above leaflet attribution and blueprint cards */
+    background: rgba(13, 21, 39, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-light);
+    border-radius: 30px;
+    padding: 5px;
+    gap: 5px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.6);
+  }
+  
+  .mobile-nav-btn {
+    background: transparent;
+    border: none;
+    color: var(--color-text-secondary);
+    padding: 8px 16px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .mobile-nav-btn.active {
+    background: var(--color-accent);
+    color: white;
+    box-shadow: var(--shadow-neon);
+  }
+}
+
+/* Leaflet Map Overrides to fit premium theme */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  background: #0d1527 !important;
+}
+
+.leaflet-bar {
+  border: 1px solid var(--border-light) !important;
+  box-shadow: none !important;
+}
+
+.leaflet-bar a {
+  background-color: var(--bg-secondary) !important;
+  color: var(--color-text-primary) !important;
+  border-bottom: 1px solid var(--border-light) !important;
+  transition: var(--transition-smooth);
+}
+
+.leaflet-bar a:hover {
+  background-color: var(--color-accent) !important;
+  color: white !important;
+}
+
+/* Animations */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+@keyframes drive-shake {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+
+.drive-shake {
+  animation: drive-shake 1.5s ease-in-out infinite;
+}
+
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.scan-overlay::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, rgba(6, 182, 212, 0.1) 40%, rgba(6, 182, 212, 0.2) 50%, rgba(6, 182, 212, 0.1) 60%, transparent);
+  animation: scan-line 3s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+  100% { transform: scale(0.95); opacity: 0.5; }
+}
+
+.pulse-active {
+  animation: pulse-ring 2s infinite ease-in-out;
+}
+
+/* Custom Marker Tooltips and Styles */
+.custom-hotel-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(7, 11, 18, 0.9);
+  border: 2px solid var(--color-accent);
+  border-radius: 50%;
+  color: var(--color-accent);
+  font-weight: bold;
+  box-shadow: var(--shadow-neon);
+}
+
+.custom-hotel-marker.selected {
+  background: var(--color-accent);
+  color: white;
+  border-color: white;
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(249, 115, 22, 0.5);
+}
+
+/* Blueprint Tool Overlay styles */
+.blueprint-card {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  width: 320px;
+  background: rgba(10, 17, 32, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px dashed var(--color-secondary);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: var(--shadow-neon-cyan);
+}
+
+.blueprint-grid {
+  background-image: 
+    linear-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(6, 182, 212, 0.1) 1px, transparent 1px);
+  background-size: 10px 10px;
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  border-radius: 6px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Form controls styling */
+.form-input {
+  width: 100%;
+  background: rgba(7, 11, 18, 0.6);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: var(--color-text-primary);
+  font-family: inherit;
+  font-size: 16px; /* iOS Safari auto-zoom prevention */
+  transition: var(--transition-smooth);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.2);
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: var(--transition-smooth);
+}
+
+.btn-primary:hover {
+  background: var(--color-accent-hover);
+  box-shadow: var(--shadow-neon);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--color-text-primary);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: var(--transition-smooth);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
