@@ -134,9 +134,9 @@ export default function MapArea({
         color: #f8fafc;
         border: 1px solid rgba(255, 255, 255, 0.15);
         border-radius: 20px;
-        padding: 5px 10px;
+        padding: 6px 12px;
         font-family: 'Space Grotesk', sans-serif;
-        font-size: 14.5px;
+        font-size: 16.5px;
         font-weight: 700;
         display: flex;
         align-items: center;
@@ -170,7 +170,7 @@ export default function MapArea({
         border-color: #ef4444;
       }
       .semi-indicator {
-        font-size: 13px;
+        font-size: 15px;
       }
       .blueprint-anchor-marker {
         color: #06b6d4;
@@ -200,8 +200,8 @@ export default function MapArea({
           onClick={() => setMapType('satellite')} 
           className={`btn-secondary`}
           style={{
-            padding: '8px 14px',
-            fontSize: '13.5px',
+            padding: '8px 16px',
+            fontSize: '15.5px',
             borderRadius: '6px',
             background: mapType === 'satellite' ? '#1e293b' : 'transparent',
             borderColor: mapType === 'satellite' ? 'var(--color-secondary)' : 'transparent',
@@ -214,8 +214,8 @@ export default function MapArea({
           onClick={() => setMapType('streets')} 
           className={`btn-secondary`}
           style={{
-            padding: '8px 14px',
-            fontSize: '13.5px',
+            padding: '8px 16px',
+            fontSize: '15.5px',
             borderRadius: '6px',
             background: mapType === 'streets' ? '#1e293b' : 'transparent',
             borderColor: mapType === 'streets' ? 'var(--color-secondary)' : 'transparent',
@@ -290,20 +290,20 @@ export default function MapArea({
       {showBlueprint && (
         <div className="blueprint-card">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-            <span style={{ fontSize: '15.5px', fontWeight: 'bold', color: 'var(--color-secondary)' }}>FWR RIG DIMENSION GUIDE</span>
-            <span style={{ fontSize: '12px', background: 'rgba(6, 182, 212, 0.1)', color: 'var(--color-secondary)', padding: '2px 6px', borderRadius: '4px' }}>SCALE: 1:1</span>
+            <span style={{ fontSize: '17.5px', fontWeight: 'bold', color: 'var(--color-secondary)' }}>FWR RIG DIMENSION GUIDE</span>
+            <span style={{ fontSize: '13.5px', background: 'rgba(6, 182, 212, 0.1)', color: 'var(--color-secondary)', padding: '2px 6px', borderRadius: '4px' }}>SCALE: 1:1</span>
           </div>
-          <p style={{ fontSize: '13px', color: 'var(--color-text-secondary)', marginBottom: '10px', lineHeight: '1.4' }}>
+          <p style={{ fontSize: '15px', color: 'var(--color-text-secondary)', marginBottom: '10px', lineHeight: '1.4' }}>
             A 70ft x 15ft scale template represents the combined truck + Ferris wheel trailer setup. Drag the anchor on the map to verify turning space and parking clearance.
           </p>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <label style={{ fontSize: '13.5px', color: 'var(--color-text-primary)' }}>Rig Orientation: {blueprintAngle}°</label>
+              <label style={{ fontSize: '15px', color: 'var(--color-text-primary)' }}>Rig Orientation: {blueprintAngle}°</label>
               <button 
                 onClick={() => setBlueprintAngle((prev) => (prev + 90) % 360)}
                 className="btn-secondary"
-                style={{ padding: '4px 10px', fontSize: '13px', borderRadius: '4px' }}
+                style={{ padding: '4px 10px', fontSize: '15px', borderRadius: '4px' }}
               >
                 🔄 Rotate 90°
               </button>

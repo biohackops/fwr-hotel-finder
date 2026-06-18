@@ -91,12 +91,12 @@ export default function ScannerConsole({ hotel, isScanning, onScanComplete }) {
             borderRadius: '50%',
             backgroundColor: step === 1 ? 'var(--color-secondary)' : hotel.hasSemiParking ? 'var(--color-success)' : 'var(--color-danger)'
           }}></span>
-          <span style={{ fontSize: '14.5px', fontWeight: 'bold', letterSpacing: '0.05em' }} className="font-mono">
+          <span style={{ fontSize: '16.5px', fontWeight: 'bold', letterSpacing: '0.05em' }} className="font-mono">
             FWR LIVE CRAWLER v2.0
           </span>
         </div>
         <span style={{
-          fontSize: '12px',
+          fontSize: '14px',
           fontWeight: 'bold',
           padding: '3px 8px',
           borderRadius: '4px',
@@ -117,7 +117,7 @@ export default function ScannerConsole({ hotel, isScanning, onScanComplete }) {
           background: 'rgba(0, 0, 0, 0.4)',
           borderRadius: '8px',
           padding: '10px',
-          fontSize: '12.5px',
+          fontSize: '14.5px',
           overflowY: 'auto',
           color: 'var(--color-secondary)',
           display: 'flex',
@@ -130,7 +130,7 @@ export default function ScannerConsole({ hotel, isScanning, onScanComplete }) {
           <div key={index} style={{ wordBreak: 'break-all' }}>{log}</div>
         ))}
         {step === 1 && (
-          <div style={{ color: 'var(--color-text-secondary)', display: 'inline-block', fontSize: '12px' }} className="pulse-active">
+          <div style={{ color: 'var(--color-text-secondary)', display: 'inline-block', fontSize: '14px' }} className="pulse-active">
             _ [scraping Google Maps reviews...]
           </div>
         )}
@@ -142,13 +142,13 @@ export default function ScannerConsole({ hotel, isScanning, onScanComplete }) {
           
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
             <div style={{ background: 'rgba(255, 255, 255, 0.02)', padding: '8px', borderRadius: '6px', border: '1px solid var(--border-light)' }}>
-              <div style={{ fontSize: '11px', color: 'var(--color-text-secondary)', textTransform: 'uppercase', fontWeight: '500' }}>Surface Area</div>
-              <div style={{ fontSize: '14px', fontWeight: '600', color: 'var(--color-text-primary)' }}>{result.surfaceDimension}</div>
+              <div style={{ fontSize: '13px', color: 'var(--color-text-secondary)', textTransform: 'uppercase', fontWeight: '500' }}>Surface Area</div>
+              <div style={{ fontSize: '16px', fontWeight: '600', color: 'var(--color-text-primary)' }}>{result.surfaceDimension}</div>
             </div>
             <div style={{ background: 'rgba(255, 255, 255, 0.02)', padding: '8px', borderRadius: '6px', border: '1px solid var(--border-light)' }}>
-              <div style={{ fontSize: '11px', color: 'var(--color-text-secondary)', textTransform: 'uppercase', fontWeight: '500' }}>Clearance Rating</div>
+              <div style={{ fontSize: '13px', color: 'var(--color-text-secondary)', textTransform: 'uppercase', fontWeight: '500' }}>Clearance Rating</div>
               <div style={{ 
-                fontSize: '14px', 
+                fontSize: '16px', 
                 fontWeight: '700', 
                 color: result.clearanceStatus === 'EXCELLENT' ? 'var(--color-success)' : result.clearanceStatus === 'SUITABLE' ? 'var(--color-warning)' : 'var(--color-danger)'
               }}>
@@ -157,37 +157,37 @@ export default function ScannerConsole({ hotel, isScanning, onScanComplete }) {
             </div>
           </div>
 
-          <div style={{ fontSize: '13.5px', background: 'rgba(255, 255, 255, 0.01)', borderLeft: '3px solid var(--color-secondary)', padding: '6px 10px' }}>
-            <div style={{ fontWeight: '600', fontSize: '11px', color: 'var(--color-text-secondary)', textTransform: 'uppercase', marginBottom: '2px' }}>Site Analysis</div>
-            <div style={{ color: 'var(--color-text-primary)', fontSize: '13px', lineHeight: '1.4' }}>{result.clearanceNotes}</div>
+          <div style={{ fontSize: '15.5px', background: 'rgba(255, 255, 255, 0.01)', borderLeft: '3px solid var(--color-secondary)', padding: '6px 10px' }}>
+            <div style={{ fontWeight: '600', fontSize: '13px', color: 'var(--color-text-secondary)', textTransform: 'uppercase', marginBottom: '2px' }}>Site Analysis</div>
+            <div style={{ color: 'var(--color-text-primary)', fontSize: '15px', lineHeight: '1.4' }}>{result.clearanceNotes}</div>
           </div>
 
           <div>
-            <div style={{ fontSize: '11px', color: 'var(--color-text-secondary)', textTransform: 'uppercase', marginBottom: '4px', fontWeight: '500' }}>Web Verification</div>
-            <div style={{ fontSize: '13px', color: 'var(--color-text-primary)', fontStyle: 'italic', background: 'rgba(0,0,0,0.15)', padding: '6px', borderRadius: '4px', border: '1px dashed var(--border-light)' }}>
+            <div style={{ fontSize: '13px', color: 'var(--color-text-secondary)', textTransform: 'uppercase', marginBottom: '4px', fontWeight: '500' }}>Web Verification</div>
+            <div style={{ fontSize: '15px', color: 'var(--color-text-primary)', fontStyle: 'italic', background: 'rgba(0,0,0,0.15)', padding: '6px', borderRadius: '4px', border: '1px dashed var(--border-light)' }}>
               "{result.websiteVerification}"
             </div>
           </div>
 
           {result.reviewsMatched && result.reviewsMatched.length > 0 ? (
             <div>
-              <div style={{ fontSize: '11px', color: 'var(--color-text-secondary)', textTransform: 'uppercase', marginBottom: '6px', fontWeight: '500' }}>Scraped Driver Reviews</div>
+              <div style={{ fontSize: '13px', color: 'var(--color-text-secondary)', textTransform: 'uppercase', marginBottom: '6px', fontWeight: '500' }}>Scraped Driver Reviews</div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                 {result.reviewsMatched.map((rev, i) => (
                   <div key={i} style={{ background: 'rgba(255,255,255,0.02)', padding: '8px', borderRadius: '6px', border: '1px solid var(--border-light)' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '2px' }}>
-                      <span style={{ fontSize: '11.5px', fontWeight: 'bold', color: 'var(--color-accent)' }}>@{rev.author}</span>
-                      <span style={{ fontSize: '10px', color: 'var(--color-text-secondary)' }}>Live Snippet</span>
+                      <span style={{ fontSize: '13.5px', fontWeight: 'bold', color: 'var(--color-accent)' }}>@{rev.author}</span>
+                      <span style={{ fontSize: '12px', color: 'var(--color-text-secondary)' }}>Live Snippet</span>
                     </div>
-                    <p style={{ fontSize: '13px', color: 'var(--color-text-primary)', lineHeight: '1.3' }}>"{rev.text}"</p>
+                    <p style={{ fontSize: '15px', color: 'var(--color-text-primary)', lineHeight: '1.3' }}>"{rev.text}"</p>
                   </div>
                 ))}
               </div>
             </div>
           ) : (
             <div>
-              <div style={{ fontSize: '11px', color: 'var(--color-text-secondary)', textTransform: 'uppercase', marginBottom: '4px', fontWeight: '500' }}>Scraped Driver Reviews</div>
-              <div style={{ fontSize: '13px', color: 'var(--color-text-secondary)', fontStyle: 'italic', background: 'rgba(0,0,0,0.15)', padding: '8px', borderRadius: '6px', border: '1px dashed var(--border-light)' }}>
+              <div style={{ fontSize: '13px', color: 'var(--color-text-secondary)', textTransform: 'uppercase', marginBottom: '4px', fontWeight: '500' }}>Scraped Driver Reviews</div>
+              <div style={{ fontSize: '15px', color: 'var(--color-text-secondary)', fontStyle: 'italic', background: 'rgba(0,0,0,0.15)', padding: '8px', borderRadius: '6px', border: '1px dashed var(--border-light)' }}>
                 No reviews found.
               </div>
             </div>
