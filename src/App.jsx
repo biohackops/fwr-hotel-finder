@@ -173,11 +173,29 @@ export default function App() {
         }
       }
 
-      // Proximity fallback
+      // Proximity fallback (or if we have no text query/bounding box from geocoding)
       if (hotelData.length === 0) {
-        const proximityUrl = `https://nominatim.openstreetmap.org/search?q=hotel&lat=${searchLat}&lon=${searchLon}&format=json&addressdetails=1&extratags=1&limit=35`;
-        const res = await fetch(proximityUrl);
-        hotelData = await res.json();
+        // Calculate a bounding box: ~15km (0.15 degrees) around the coordinates to restrict search locally
+        const delta = 0.15;
+        const latMin = searchLat - delta;
+        const latMax = searchLat + delta;
+        const lonMin = searchLon - delta;
+        const lonMax = searchLon + delta;
+        
+        const proximityUrl = `https://nominatim.openstreetmap.org/search?q=hotel&viewbox=${lonMin},${latMax},${lonMax},${latMin}&bounded=1&format=json&addressdetails=1&extratags=1&limit=35`;
+        try {
+          const res = await fetch(proximityUrl);
+          hotelData = await res.json();
+        } catch (e) {
+          console.warn("Bounded proximity search failed", e);
+        }
+
+        // Deep fallback: If bounded search returns absolutely nothing, run biased search
+        if (hotelData.length === 0) {
+          const globalUrl = `https://nominatim.openstreetmap.org/search?q=hotel&lat=${searchLat}&lon=${searchLon}&format=json&addressdetails=1&extratags=1&limit=25`;
+          const resGlobal = await fetch(globalUrl);
+          hotelData = await resGlobal.json();
+        }
       }
 
       let enriched = enrichDynamicHotels(hotelData, searchLat, searchLon);
