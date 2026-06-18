@@ -374,10 +374,10 @@ export default function App() {
           </div>
 
           <div>
-            <h1 style={{ fontSize: '18px', fontWeight: 'bold', color: 'white', lineHeight: '1.1' }}>
+            <h1 style={{ fontSize: '21px', fontWeight: 'bold', color: 'white', lineHeight: '1.1' }}>
               FWR HOTEL FINDER
             </h1>
-            <p style={{ fontSize: '10px', color: 'var(--color-text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: '600' }}>
+            <p style={{ fontSize: '11.5px', color: 'var(--color-text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: '600' }}>
               Ferris Wheel Rig logistics
             </p>
           </div>
@@ -427,13 +427,13 @@ export default function App() {
         <div style={{ padding: '20px', borderBottom: '1px solid var(--border-light)', background: 'rgba(7, 11, 18, 0.2)' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
             <SlidersHorizontal size={15} style={{ color: 'var(--color-accent)' }} />
-            <h3 style={{ fontSize: '13px', fontWeight: 'bold', textTransform: 'uppercase', color: 'var(--color-text-primary)' }}>Filters</h3>
+            <h3 style={{ fontSize: '15px', fontWeight: 'bold', textTransform: 'uppercase', color: 'var(--color-text-primary)' }}>Filters</h3>
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
             {/* Price Filter */}
             <div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px', marginBottom: '6px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '14px', marginBottom: '6px' }}>
                 <span style={{ color: 'var(--color-text-secondary)' }}>Max Nightly Budget:</span>
                 <span style={{ color: 'var(--color-accent)', fontWeight: 'bold' }}>${maxBudget}</span>
               </div>
@@ -449,7 +449,7 @@ export default function App() {
             </div>
 
             {/* Semi Parking Checkbox */}
-            <label style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer', fontSize: '12px', color: 'var(--color-text-primary)' }}>
+            <label style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer', fontSize: '14px', color: 'var(--color-text-primary)' }}>
               <input 
                 type="checkbox" 
                 checked={onlySemiParking}
@@ -468,7 +468,7 @@ export default function App() {
             </label>
 
             {/* Template Toggle Checkbox */}
-            <label style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer', fontSize: '12px', color: 'var(--color-text-primary)' }}>
+            <label style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer', fontSize: '14px', color: 'var(--color-text-primary)' }}>
               <input 
                 type="checkbox" 
                 checked={showBlueprint}
@@ -492,7 +492,7 @@ export default function App() {
         {error && (
           <div style={{ margin: '15px 20px', padding: '12px', background: 'rgba(239, 68, 68, 0.1)', border: '1px solid rgba(239, 68, 68, 0.2)', borderRadius: '8px', display: 'flex', gap: '8px', color: 'var(--color-danger)' }}>
             <AlertCircle size={18} style={{ flexShrink: 0 }} />
-            <span style={{ fontSize: '12px' }}>{error}</span>
+            <span style={{ fontSize: '13.5px' }}>{error}</span>
           </div>
         )}
 
@@ -505,7 +505,7 @@ export default function App() {
               borderTopColor: 'var(--color-accent)',
               borderRadius: '50%',
             }} className="spin-slow"></div>
-            <span style={{ fontSize: '12px', color: 'var(--color-text-secondary)' }}>Searching area & scanning listings...</span>
+            <span style={{ fontSize: '14px', color: 'var(--color-text-secondary)' }}>Searching area & scanning listings...</span>
           </div>
         ) : (
           <>
@@ -515,23 +515,23 @@ export default function App() {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                     <MapPin size={14} style={{ color: 'var(--color-accent)' }} />
-                    <span style={{ fontSize: '12px', fontWeight: 'bold', color: 'white' }}>ACTIVE AUDIT</span>
+                    <span style={{ fontSize: '13.5px', fontWeight: 'bold', color: 'white' }}>ACTIVE AUDIT</span>
                   </div>
                   <a 
                     href={selectedHotel.googleMapsUrl} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    style={{ fontSize: '11px', color: 'var(--color-secondary)', display: 'flex', alignItems: 'center', gap: '3px', textDecoration: 'none' }}
+                    style={{ fontSize: '13px', color: 'var(--color-secondary)', display: 'flex', alignItems: 'center', gap: '3px', textDecoration: 'none' }}
                   >
                     <span>Google Satellite</span>
                     <ExternalLink size={10} />
                   </a>
                 </div>
                 
-                <h2 style={{ fontSize: '15px', fontWeight: 'bold', color: 'white', marginBottom: '4px' }}>
+                <h2 style={{ fontSize: '17.5px', fontWeight: 'bold', color: 'white', marginBottom: '4px' }}>
                   {selectedHotel.name}
                 </h2>
-                <p style={{ fontSize: '11px', color: 'var(--color-text-secondary)', marginBottom: '12px', lineHeight: '1.3' }}>
+                <p style={{ fontSize: '13px', color: 'var(--color-text-secondary)', marginBottom: '12px', lineHeight: '1.3' }}>
                   {selectedHotel.address}
                 </p>
 
@@ -542,7 +542,7 @@ export default function App() {
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="btn-secondary"
-                    style={{ padding: '6px 10px', fontSize: '11px', gap: '4px', flex: 1, minWidth: '110px', textDecoration: 'none' }}
+                    style={{ padding: '8px 12px', fontSize: '13px', gap: '4px', flex: 1, minWidth: '110px', textDecoration: 'none' }}
                   >
                     <span>Official Website</span>
                   </a>
@@ -551,7 +551,7 @@ export default function App() {
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="btn-primary"
-                    style={{ padding: '6px 10px', fontSize: '11px', gap: '4px', flex: 1, minWidth: '110px', textDecoration: 'none' }}
+                    style={{ padding: '8px 12px', fontSize: '13px', gap: '4px', flex: 1, minWidth: '110px', textDecoration: 'none' }}
                   >
                     <span>🔑 Book Hotel</span>
                   </a>
@@ -568,16 +568,16 @@ export default function App() {
             {/* HOTEL LIST */}
             <div style={{ flex: 1, padding: '20px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-                <h3 style={{ fontSize: '12px', fontWeight: 'bold', textTransform: 'uppercase', color: 'var(--color-text-secondary)' }}>
+                <h3 style={{ fontSize: '14px', fontWeight: 'bold', textTransform: 'uppercase', color: 'var(--color-text-secondary)' }}>
                   Hotels in {currentCityName}
                 </h3>
-                <span style={{ fontSize: '11px', background: 'rgba(255, 255, 255, 0.05)', padding: '2px 8px', borderRadius: '12px', color: 'var(--color-text-primary)' }}>
+                <span style={{ fontSize: '13px', background: 'rgba(255, 255, 255, 0.05)', padding: '2px 8px', borderRadius: '12px', color: 'var(--color-text-primary)' }}>
                   {filteredHotels.length} match{filteredHotels.length !== 1 ? 'es' : ''}
                 </span>
               </div>
 
               {filteredHotels.length === 0 ? (
-                <div style={{ textAlign: 'center', padding: '30px', border: '1px dashed var(--border-light)', borderRadius: '8px', color: 'var(--color-text-secondary)', fontSize: '12px' }}>
+                <div style={{ textAlign: 'center', padding: '30px', border: '1px dashed var(--border-light)', borderRadius: '8px', color: 'var(--color-text-secondary)', fontSize: '13.5px' }}>
                   No hotels match the current filters. Adjust your budget or try unchecked truck parking.
                 </div>
               ) : (
@@ -598,23 +598,23 @@ export default function App() {
                         }}
                       >
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '6px' }}>
-                          <h4 style={{ fontSize: '13px', fontWeight: 'bold', color: 'white', flex: 1, paddingRight: '8px', lineHeight: '1.3' }}>
+                          <h4 style={{ fontSize: '15px', fontWeight: 'bold', color: 'white', flex: 1, paddingRight: '8px', lineHeight: '1.3' }}>
                             {hotel.name}
                           </h4>
-                          <span style={{ fontSize: '14px', fontWeight: 'bold', color: 'var(--color-accent)' }}>
-                            ${hotel.price}<span style={{ fontSize: '10px', color: 'var(--color-text-secondary)', fontWeight: 'normal' }}>/nt</span>
+                          <span style={{ fontSize: '16px', fontWeight: 'bold', color: 'var(--color-accent)' }}>
+                            ${hotel.price}<span style={{ fontSize: '11.5px', color: 'var(--color-text-secondary)', fontWeight: 'normal' }}>/nt</span>
                           </span>
                         </div>
 
-                        <p style={{ fontSize: '11px', color: 'var(--color-text-secondary)', marginBottom: '8px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                        <p style={{ fontSize: '13px', color: 'var(--color-text-secondary)', marginBottom: '8px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                           {hotel.address}
                         </p>
 
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                           <span style={{
-                            fontSize: '10px',
+                            fontSize: '11.5px',
                             fontWeight: 'bold',
-                            padding: '2px 6px',
+                            padding: '3px 8px',
                             borderRadius: '4px',
                             backgroundColor: hotel.hasSemiParking ? 'rgba(16, 185, 129, 0.1)' : 'rgba(239, 68, 68, 0.1)',
                             color: hotel.hasSemiParking ? 'var(--color-success)' : 'var(--color-danger)',
@@ -622,11 +622,11 @@ export default function App() {
                             alignItems: 'center',
                             gap: '4px'
                           }}>
-                            <Truck size={10} />
+                            <Truck size={11} />
                             {hotel.hasSemiParking ? 'Semi Truck Verified' : 'Standard Stalls Only'}
                           </span>
 
-                          <span style={{ fontSize: '10px', color: 'var(--color-secondary)' }}>
+                          <span style={{ fontSize: '11.5px', color: 'var(--color-secondary)' }}>
                             {hotel.hasSemiParking && hotel.parkingScanResult ? 'Clearance: ' + hotel.parkingScanResult.clearanceStatus : 'No Clearance'}
                           </span>
                         </div>

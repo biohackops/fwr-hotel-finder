@@ -53,6 +53,7 @@ body {
     linear-gradient(90deg, rgba(255, 255, 255, 0.005) 1px, transparent 1px);
   background-size: 100% 100%, 100% 100%, 30px 30px, 30px 30px;
   color: var(--color-text-primary);
+  font-size: 15.5px;
   overflow: hidden;
 }
 
