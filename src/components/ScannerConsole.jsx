@@ -169,7 +169,7 @@ export default function ScannerConsole({ hotel, isScanning, onScanComplete }) {
             </div>
           </div>
 
-          {result.reviewsMatched && result.reviewsMatched.length > 0 && (
+          {result.reviewsMatched && result.reviewsMatched.length > 0 ? (
             <div>
               <div style={{ fontSize: '10px', color: 'var(--color-text-secondary)', textTransform: 'uppercase', marginBottom: '6px' }}>Scraped Driver Reviews</div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
@@ -182,6 +182,13 @@ export default function ScannerConsole({ hotel, isScanning, onScanComplete }) {
                     <p style={{ fontSize: '11px', color: 'var(--color-text-primary)', lineHeight: '1.3' }}>"{rev.text}"</p>
                   </div>
                 ))}
+              </div>
+            </div>
+          ) : (
+            <div>
+              <div style={{ fontSize: '10px', color: 'var(--color-text-secondary)', textTransform: 'uppercase', marginBottom: '4px' }}>Scraped Driver Reviews</div>
+              <div style={{ fontSize: '11px', color: 'var(--color-text-secondary)', fontStyle: 'italic', background: 'rgba(0,0,0,0.15)', padding: '8px', borderRadius: '6px', border: '1px dashed var(--border-light)' }}>
+                No reviews found.
               </div>
             </div>
           )}

@@ -273,12 +273,7 @@ app.post('/api/scan', async (req, res) => {
   log(`✅ Analysis finished. Clearance Rating: ${clearanceStatus}`);
   log(`🏁 FWR PIPELINE RUN COMPLETED.`);
 
-  // If no reviews were found anywhere, provide a placeholder noting the lack of data
-  if (reviews.length === 0) {
-    reviews = [
-      { author: "Scanner Alert", text: "No Google Reviews or search snippets mentioning parking were recovered during this live scan. Please consult the satellite view to verify lot size manually." }
-    ];
-  }
+
 
   res.json({
     success: true,
